@@ -66,22 +66,30 @@ L'architecture RAG envisagée repose sur deux processus complémentaires.
 
 Le projet est organisé en plusieurs phases progressives. Chaque milestone correspond à un objectif technique et à des livrables identifiables.
 
+Jalon	 Objectif	Livrable (critère de fin)
+M0. Cadrage (2-3 jours)	Choisir le cas d'usage et les données	Un README avec le problème, le corpus (au moins 30 à 50 documents), 3 utilisateurs types et 20 questions réelles que le système doit savoir traiter
+M1. Ingestion	Charger, nettoyer et découper les documents	Un script reproductible qui produit des chunks avec métadonnées (source, page, date). Un test unitaire sur le découpage
+M2. Indexation et recherche	Embeddings, base vectorielle, recherche	Une fonction de recherche qui renvoie les top-k passages avec leur score. Vous pouvez expliquer pourquoi tel chunk est remonté
+M3. Génération avec citations	Prompt, appel LLM, réponse sourcée	Réponses qui citent leurs sources et disent « je ne sais pas » quand le contexte manque
+M4. API FastAPI	Exposer le système	Endpoints d'ingestion et de requête, schémas Pydantic typés, gestion d'erreurs, streaming si possible
+M5. Évaluation	Mesurer au lieu de deviner	Un jeu de test de 30 à 50 questions avec réponses attendues, des métriques de retrieval (le bon passage est-il dans le top-k ?) et de fidélité, un rapport avant/après chaque changement
+M6. Qualité et sécurité	Tests, robustesse, risques	Tests automatisés, protection contre l'injection de prompt dans les documents, secrets hors du code, limites de coût et de taille
+M7. Observabilité et déploiement	Production	Logs structurés, traces des appels LLM, suivi des coûts et de la latence, Docker, CI/CD, déploiement sur AWS
+M8. Documentation	Portfolio	README GitHub avec schéma d'architecture, décisions techniques et compromis, démo en ligne, résultats de l'évaluation
 
-Jalon       Phase                          Principaux livrables
 
-M0          Initialisation du projet       Environnement Python, structure du projet, Git, outils qualité
-M1          Ingestion documentaire         Chargement des documents et extraction du texte
-M2          chunking et metadata           chunking et gestion des métadonnées
-M3          Embeddings et base vectoriel   Génération des embeddings, Qdrant stocake veteurs
-M4          Retrieve et RAG               Recherche sémantique et récupération des passages pertinents
-M5          Evaluation
-M6          UI et API deploimment         Interface conversationnelle avec Streamlit, FastAPI,Docker,AWS
-M7          Production                    CI/CD Automatisation des pipelines, logs et monitoring
 
 6. Stack technologique prévisionnel
 
 Les technologies suivantes sont envisagées pour la réalisation du projet.
-langage : Python 3.12  /  orchestration : LangChain  /enbedings : Sentences Transformers  /Base vectoriel: Qdrant   LLl Local : Ollam QWEN  Backend : FastAPI  Frontend : Streamlit Tests : Pytest  qualit" de code : ruff versionning : Git GitHub   conteneurisation : Docker   CI/CD GitHub actions 
+langage : Python 3.12 
+orchestration : LangChain 
+embeddings : Sentences Transformers  
+Base vectoriel: Qdrant  
+ LLM Local : Ollam QWEN  
+ Backend : FastAPI  Frontend : Streamlit 
+ Tests : Pytest  versionning : Git GitHub   
+ conteneurisation : Docker   CI/CD GitHub actions 
 
 7. Structure du projet
 
