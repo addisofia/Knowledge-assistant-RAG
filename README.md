@@ -108,12 +108,51 @@ knowledge-assistant-rag/
 ├── uv.lock
 └── README.md
 
+M0 — Setup et architecture
+
+Objectif : Mettre en place un environnement de développement Python reproductible, une structure de projet maintenable et un pipeline de vérification automatique de la qualité du code.
+
+Réalisations
+
+Mise en place d'une structure de projet Python basée sur src/.
+
+Initialisation et gestion du projet avec uv.
+
+Configuration d'un environnement Python 3.12.6.
+
+Gestion des dépendances et verrouillage des versions avec pyproject.toml et uv.lock.
+
+Mise en place des outils de qualité et de vérification du code :
+
+Ruff : linting et formatage.
+
+Mypy : vérification statique des types.
+
+Pytest : framework de tests.
+
+Création d'un premier test de validation du projet.
+
+Mise en place d'une pipeline CI avec GitHub Actions pour automatiser :
+
+le linting ;
+
+la vérification du formatage ;
+
+le contrôle des types ;
+
+l'exécution des tests.
+
+Stack technique
+
+Python 3.12 · uv · Ruff · Mypy · Pytest · Git · GitHub Actions
+
+Statut
+
+M0 — Setup et architecture : terminé.
+
 8.État d'avancement
+Phase actuelle : M1 — Initialisation du projet.
 
 Statut : En cours de développement.
 
-Phase actuelle : M0 — Initialisation du projet.
 
-Les travaux portent actuellement sur la configuration de l'environnement Python, la structuration du code source, la gestion des dépendances, les outils de qualité et le versionnement Git.
-
-Les fonctionnalités du moteur RAG seront développées progressivement au cours des prochaines phases.
